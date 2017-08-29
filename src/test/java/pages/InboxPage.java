@@ -13,7 +13,6 @@ public class InboxPage
     }
 
     public InboxPage shouldBeEmails(int numbers) {
-        //b-datalist__item js-datalist-item b-datalist__item_unread
         $$(byClassName("b-datalist__item__body")).filter(visible).shouldHaveSize(numbers);
         return this;
     }

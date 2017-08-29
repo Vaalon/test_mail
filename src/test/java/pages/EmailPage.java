@@ -25,6 +25,7 @@ public class EmailPage
         return this;
     }
 
+    //TODO: move to base page
     public void logout() {
         $("#PH_logoutLink").click();
     }

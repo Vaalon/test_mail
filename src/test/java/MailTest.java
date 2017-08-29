@@ -11,22 +11,26 @@ import java.io.IOException;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class TestMail
+public class MailTest
 {
+
+    @Parameters({ "selenium.browser" })
+    @BeforeSuite
+    public void setUp(String browser) {
+        Configuration.browser = browser;
+    }
 
     @Test(dataProvider = "mailTestData")
     public void testMail(Credentials credentials, String searchText, Email email) {
-        //TODO:change to use hub
-        Configuration.browser = "gecko";
         open("https://mail.ru");
 
         AuthorizationPage.login(credentials);
 
         new InboxPage().findEmail(searchText)
                 .shouldBeEmails(1)
-                .openEmailByIndex(0);
-
-        new EmailPage().senderEmailShouldBe(email.getSenderEmail())
+                .openEmailByIndex(0)
+                
+                .senderEmailShouldBe(email.getSenderEmail())
                 .subjectShouldBe(email.getSubject())
                 .contentShouldHave(email.getContent())
                 .logout();
