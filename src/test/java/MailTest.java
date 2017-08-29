@@ -18,7 +18,7 @@ public class MailTest
 {
 
     @Parameters({"selenium.browser"})
-    @BeforeSuite
+    @BeforeSuite(description = "Set up browser")
     public void setUp(@Optional("firefox") String browser) {
         Configuration.browser = browser;
     }
