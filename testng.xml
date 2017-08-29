@@ -1,9 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
-<suite name="Mail" >
-    <parameter name="selenium.browser"  value="chrome"/>
+<suite name="Mail">
+    <parameter name="selenium.browser"  value="gecko"/>
 
-    <classes>
-        <class name="MailTest" />
-    </classes>
+    <test name="Functional">
+        <classes>
+            <class name="MailTest" />
+        </classes>
+    </test>
 </suite>

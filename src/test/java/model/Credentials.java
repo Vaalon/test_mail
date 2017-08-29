@@ -25,4 +25,13 @@ public class Credentials
     public String getPass() {
         return pass;
     }
+
+    @Override
+    public String toString() {
+        return "Credentials{" +
+                "login='" + login + '\'' +
+                ", emailDomain='" + emailDomain + '\'' +
+                ", pass='" + pass + '\'' +
+                '}';
+    }
 }

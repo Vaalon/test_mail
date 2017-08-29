@@ -25,4 +25,13 @@ public class Email
     public String getContent() {
         return content;
     }
+
+    @Override
+    public String toString() {
+        return "Email{" +
+                "senderEmail='" + senderEmail + '\'' +
+                ", subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

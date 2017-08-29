@@ -1,27 +1,33 @@
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Feature;
 import model.Credentials;
 import model.Email;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.AuthorizationPage;
-import pages.EmailPage;
 import pages.InboxPage;
+import utils.ExcelUtils;
+import utils.TestFailListener;
 
 import java.io.IOException;
 
+import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.open;
 
+@Listeners({TestFailListener.class})
 public class MailTest
 {
 
-    @Parameters({ "selenium.browser" })
+    @Parameters({"selenium.browser"})
     @BeforeSuite
-    public void setUp(String browser) {
+    public void setUp(@Optional("firefox") String browser) {
         Configuration.browser = browser;
     }
 
-    @Test(dataProvider = "mailTestData")
-    public void testMail(Credentials credentials, String searchText, Email email) {
+
+    @Test(description = "Open email and validate it",
+            dataProvider = "mailTestData")
+    public void testMail(Credentials credentials, String searchText, Email email) throws Exception {
+        clearBrowserCookies();
         open("https://mail.ru");
 
         AuthorizationPage.login(credentials);
