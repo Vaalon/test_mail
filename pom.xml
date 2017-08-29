@@ -65,9 +65,10 @@
                 <version>${maven-surefire.version}</version>
                 <configuration>
                 <systemPropertyVariables>
-                    <webdriver.chrome.driver>/home/dmitry/Programs/seleniumDrivers/chromedriver</webdriver.chrome.driver>
-                    <webdriver.gecko.driver>/home/dmitry/Programs/seleniumDrivers/geckodriver</webdriver.gecko.driver>
-                    <webdriver.firefox.bin>/home/dmitry/Programs/firefox/firefox57/firefox</webdriver.firefox.bin>
+                    <!--<webdriver.chrome.driver>~/Programs/seleniumDrivers/chromedriver</webdriver.chrome.driver>-->
+                    <!--<webdriver.gecko.driver>~/Programs/seleniumDrivers/geckodriver</webdriver.gecko.driver>-->
+                    <!--<webdriver.firefox.bin>~/Programs/firefox/firefox57/firefox</webdriver.firefox.bin>-->
+
                     <selenide.reports>target/selenide/reports</selenide.reports>
                     <allure.results.directory>target/allure-results</allure.results.directory>
                 </systemPropertyVariables>
